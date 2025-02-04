@@ -1,61 +1,21 @@
-/* Định dạng cơ bản cho toàn bộ trang */
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    display: flex;
-    min-height: 100vh;
 }
 
-/* ===== Menu ===== */
-.menu {
-    background-color: #007BFF;
-    width: 200px;
-    padding: 20px 0;
-    position: fixed;
-    right: 0; /* Menu phía bên phải */
-    top: 0;
-    bottom: 0;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
-}
-
-.menu ul {
-    list-style: none;
-    padding: 100;
-    margin: 0;
-    text-align: center;
-}
-
-.menu li {
-    margin: 20px 0;
-}
-
-.menu a {
-    text-decoration: none;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    transition: background 0.3s, color 0.3s;
-    padding: 10px 15px;
-    display: block;
-    border-radius: 4px;
-}
-
-.menu a:hover {
-    background-color: #0056b3;
-    color: #fff;
-}
-
-/* ===== Nội dung chính ===== */
 .container {
-    max-width: 600px;
-    margin: 50px auto;
+    max-width: 200px;    /* Thu nhỏ chiều rộng */
     background: #fff;
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding-right: 220px; /* Để không bị đè lên menu */
+    padding: 10px;       /* Giảm padding để nội dung gọn hơn */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Đổ bóng nhẹ hơn */
+    border-radius: 12px; /* Bo góc mềm mại hơn */
+
+    /* Cố định ở góc dưới bên phải */
+    position: fixed; 
+    bottom: 15px;   /* Sát mép dưới hơn một chút */
+    right: 15px;    /* Sát mép phải hơn */
 }
 
 h1 {
@@ -79,7 +39,7 @@ button {
 }
 
 button {
-    background-color: #28a745;
+    background-color: #007BFF;
     color: white;
     border: none;
     cursor: pointer;
@@ -87,16 +47,148 @@ button {
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #0056b3;
 }
 
-/* Responsive cho màn hình nhỏ */
-@media (max-width: 768px) {
-    .menu {
-        width: 150px;
-    }
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
 
-    .container {
-        padding-right: 170px;
-    }
+.sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #222;
+    width: 200px; /* Chiều rộng cố định */
+    height: 100vh; /* Kéo dài hết chiều cao của trang */
+    position: fixed; /* Giữ cố định menu bên trái */
+    top: 0;
+    left: 0;
+    overflow: auto; /* Thêm thanh cuộn nếu nội dung quá dài */
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-menu li {
+    border-bottom: 1px solid #444;
+}
+
+.sidebar-menu a {
+    display: block;
+    padding: 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background 0.3s, padding-left 0.3s;
+    font-size: 16px;
+}
+
+.sidebar-menu a:hover {
+    background-color: #444;
+    padding-left: 30px; /* Tạo hiệu ứng lệch nhẹ khi hover */
+    color: #f1c40f;
+}
+
+.main-content {
+    margin-left: 200px; /* Để nội dung không bị đè lên menu */
+    padding: 20px;
+}
+
+.input-box {
+    display: flex;           /* Sắp xếp các ô nhập liệu nằm ngang */
+    gap: 15px;               /* Khoảng cách giữa 2 ô */
+    margin-top: 15px;        /* Tạo khoảng cách với phần trên */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;  /* Xếp label và input theo chiều dọc */
+    width: 100%;             /* Giúp 2 ô bằng nhau */
+}
+
+.input-group label {
+    font-size: 14px;         /* Kích thước chữ nhỏ gọn */
+    margin-bottom: 5px;      /* Tạo khoảng cách giữa label và input */
+    color: #444;             /* Màu chữ tối dễ nhìn */
+}
+
+.input-group input {
+    padding: 8px;            /* Tạo không gian trong ô nhập */
+    border: 1px solid #ccc;  /* Viền nhạt */
+    border-radius: 6px;      /* Bo góc mềm mại */
+    outline: none;           /* Bỏ viền xanh khi click vào */
+    transition: border 0.3s; /* Hiệu ứng khi focus */
+}
+
+.input-group input:focus {
+    border: 1px solid #007BFF; /* Đổi màu viền khi được chọn */
+}
+
+.main-content { 
+    padding-right: 220px; /* Thêm khoảng trống bên phải để tránh menu */
+}
+
+#add-word-btn {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#add-word-btn:hover {
+    background-color: #0056b3;
+}
+
+.input-group {
+    margin-bottom: 10px;
+}
+
+/* Khung chứa từng từ vựng */
+.word-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Định dạng cho từ vựng */
+/* Khung chứa từng từ vựng */
+.word-item {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    gap: 20px; /* Khoảng cách giữa từ vựng và giải nghĩa */
+}
+
+/* Định dạng cho từ vựng */
+.word {
+    padding: 10px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: left;
+    width: 50%; /* Chiếm một nửa chiều rộng */
+    box-sizing: border-box; /* Đảm bảo padding không làm vượt quá kích thước */
+}
+
+/* Định dạng cho giải nghĩa */
+.meaning {
+    padding: 10px;
+    background-color: #fffefe;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: left;
+    width: 50%; /* Chiếm một nửa chiều rộng */
+    box-sizing: border-box; /* Đảm bảo padding không làm vượt quá kích thước */
 }
