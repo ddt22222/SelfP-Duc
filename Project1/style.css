@@ -1,0 +1,102 @@
+/* Định dạng cơ bản cho toàn bộ trang */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== Menu ===== */
+.menu {
+    background-color: #007BFF;
+    width: 200px;
+    padding: 20px 0;
+    position: fixed;
+    right: 0; /* Menu phía bên phải */
+    top: 0;
+    bottom: 0;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.menu ul {
+    list-style: none;
+    padding: 100;
+    margin: 0;
+    text-align: center;
+}
+
+.menu li {
+    margin: 20px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+    padding: 10px 15px;
+    display: block;
+    border-radius: 4px;
+}
+
+.menu a:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+/* ===== Nội dung chính ===== */
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding-right: 220px; /* Để không bị đè lên menu */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+button {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+/* Responsive cho màn hình nhỏ */
+@media (max-width: 768px) {
+    .menu {
+        width: 150px;
+    }
+
+    .container {
+        padding-right: 170px;
+    }
+}

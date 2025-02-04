@@ -4,89 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Đơn Giản</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-
-        header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 1rem 0;
-        }
-
-        nav {
-            background-color: #444;
-            padding: 0.5rem;
-            text-align: center;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 1rem;
-        }
-
-        main {
-            padding: 2rem;
-            background-color: white;
-            margin: 1rem auto;
-            max-width: 800px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Chào mừng đến với Tôi</h1>
-    </header>
-
-    <nav>
-        <a href="#home">Trang Chủ</a>
-        <a href="#about">Giới Thiệu</a>
-        <a href="#contact">Liên Hệ</a>
+    <nav class="menu">
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Tìm kiếm</a></li>
+            <li><a href="#">Liên hệ</a></li>
+        </ul>
     </nav>
 
-    <main>
-        <section id="home">
-            <h2>Trang Chủ</h2>
-            <p>Đây là phần nội dung chính của website đơn giản này.</p>
-        </section>
-
-        <section id="about">
-            <h2>Giới Thiệu</h2>
-            <p>Website này được tạo bằng HTML, CSS và TypeScript cơ bản.</p>
-        </section>
-
-        <section id="contact">
-            <h2>Liên Hệ</h2>
-            <form id="contactForm">
-                <label for="name">Tên:</label>
-                <input type="text" id="name" name="name" required><br><br>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required><br><br>
-                <button type="submit">Gửi</button>
-            </form>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Website Đơn Giản</p>
-    </footer>
+    <div class="container">
+        <h1>Liên hệ với chúng tôi</h1>
+        <form id="contactForm">
+            <input type="text" id="name" placeholder="Họ và tên" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <button type="submit">Gửi thông tin</button>
+        </form>
+    </div>
 
     <script src="app.js"></script>
 </body>
