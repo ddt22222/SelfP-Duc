@@ -1,8 +1,37 @@
+const express = require("express");
+const mysql = require("mysql");
+const app = express();
+
+app.use(express.json()); // Cho phép Express đọc dữ liệu JSON
+
+// Kết nối MySQL
+const db = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "",
+  database: "mydb"
+});
+db.connect();
+
+// API nhận dữ liệu và lưu vào database
+app.post("/save", (req, res) => {
+  const { name, email } = req.body;
+  const sql = "INSERT INTO users (word, explain) VALUES (?, ?)";
+  db.query(sql, [name, email], (err, result) => {
+    if (err) return res.status(500).json({ error: err.message });
+    res.json({ message: "Lưu thành công!" });
+  });
+});
+
+// Chạy server
+app.listen(3000, () => console.log("Server chạy tại http://localhost:3000"));
+
+
 var form = document.getElementById('contactForm');
 form.addEventListener('submit', function (event) {
     event.preventDefault();
-    var name = document.getElementById('name').value;
-    var email = document.getElementById('email').value;
+    var name = document.getElementById('input1').value;
+    var email = document.getElementById('input2').value;
     alert("C\u1EA3m \u01A1n ".concat(name, "! Ch\u00FAng t\u00F4i s\u1EBD li\u00EAn h\u1EC7 v\u1EDBi b\u1EA1n qua email: ").concat(email, "."));
 });
 
