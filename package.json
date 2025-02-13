@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "name": "selfpractice",
   "version": "1.0.0",
   "description": "",
@@ -11,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.21.2",
-    "exxpress": "^1.0.0"
+    "exxpress": "^1.0.0",
+    "mysql2": "^3.12.0"
   }
 }
